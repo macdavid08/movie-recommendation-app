@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
+import DataLoader from "react-spinners/ClipLoader";
 import "./App.css";
 import './components/Movie.css'
 import Movie from "./components/Movie";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false)
+  const [search, setSearch]= useState([])
   const movieApi =
-    "https://api.themoviedb.org/3/trending/all/day?api_key=6e1d4f5e50634c1336f791f577f84406";
+    "https://api.themoviedb.org/3/discover/movie?api_key=6e1d4f5e50634c1336f791f577f84406";
+
+    const search_Api = "https://api.themoviedb.org/3/search/movie?&api_key=6e1d4f5e50634c1336f791f577f84406&query="
 
   const [movieCard, setMovieCard] = useState([]);
   const fetchMovies = () => {
@@ -24,8 +28,30 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <p>fetching your movies...</p>
+    return  <DataLoader
+    color="#8d23f0"
+    loading={isLoading}
+    size={50}
+    className="pre-load"
+    // aria-label="Loading Spinner"
+    // data-testid="loader"
+  />
   }
+
+  function getValue (e) {
+    const searchValue = e.target.value;
+    setSearch(searchValue)
+    fetch(search_Api + searchValue)
+      .then((res) => res.json())
+      .then((data) => {
+        
+        setMovieCard(data.results);
+      });
+
+  }
+
+
+  console.log()
 
   return (
     <div className="App">
@@ -35,6 +61,8 @@ function App() {
             type="text"
             placeholder="search for movie"
             className="toSearch"
+            onChange={getValue}
+            value={search}
           />
           <button className="icon">
             <i className="fa-solid fa-magnifying-glass"></i>
@@ -42,7 +70,7 @@ function App() {
         </div>
         <div className="movie--box">
           {movieCard.length === 0 ? (
-            <p>Oops! There're no movies, maybe you should act yours.</p>
+            <p></p>
           ) : (
             movieCard.map((info) => {
              return <Movie key={info.id} data={info} />;

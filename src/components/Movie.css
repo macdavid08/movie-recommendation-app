@@ -9,13 +9,12 @@
 
 .search {
 
-    width: 400px;
+    width: 90%;
     margin: auto;
-    float: right;
     margin-top: 10px;
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: none;
     align-items: center;
     padding: 5px 10px;
     border-radius: 10px;
@@ -59,8 +58,15 @@
     width: 100%;
     height: auto;
     background: #fff;
-    box-shadow: 0px 4px 4px 0px #00000026;
+    box-shadow: 3px 3px 2px 1px #00000026;
+    padding-bottom: 20px;
+    transition: transform 0.5s ease 0s;
 
+}
+
+.movie--cont:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 2px 2px 2px 0px #00000026;
 
 }
 
@@ -74,8 +80,8 @@
 .movieTitle {
     width: 100%;
     height: 60px;
-    padding: 10px  ;
-    margin: 0;
+    padding: 10px;
+    /* margin-top: 20px; */
     /* background-color: #fff; */
     display: flex;
     justify-content: space-around;
@@ -90,11 +96,9 @@
     line-height: 20px;
     text-transform: uppercase;
     width: 70%;
+    font-size: 15px;
 }
 
-.star--rating {
-    float: right;
-}
 
 .rating--star {
     margin-right: 10px;
@@ -118,4 +122,192 @@
 
 .overview--text {
     font-size: 12px;
+    box-sizing: border-box;
+}
+
+.overview--others {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.overview--others span {
+    margin-right: 5px;
+    font-weight: 500;
+}
+
+.pre-load {
+    width: 100%;
+    margin-left: 100px;
+    margin: 0 auto;
+    /* background-color: #4f0c8f; */
+}
+
+.roll {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 640px) {
+    .movie--hub {
+        width: 100%;
+        padding: 0px 10px;
+    }
+
+    .search {
+
+        width: 90%;
+    }
+
+    .toSearch {
+        padding: 14.8px 10px;
+    }
+
+    .movie--box {
+        top: 80px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .movie--cont {
+        padding-bottom: 10px;
+
+    }
+
+    .movie--cont:hover {
+        transform: scale(1.02);
+
+    }
+
+    .movie__image {
+        height: 180px;
+    }
+
+    .movieTitle {
+        height: 40px;
+        padding: 5px;
+        margin-top: 10px;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .title {
+        line-height: 13px;
+        width: 100%;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .rating--star {
+        margin-right: 5px;
+        font-size: 13px;
+    }
+
+    .rating--text {
+        font-size: 12px;
+    }
+
+    .overview {
+        width: 100%;
+        background-color: #fff;
+        padding: 7px 10px;
+    }
+    .overview h3 {
+        font-size: 14px;
+    }
+    
+    
+    .overview--text {
+        font-size: 11px;
+    }
+    
+    .overview--others {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 10px;
+        font-size: 11px;
+    }
+
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .search {
+
+        width: 90%;
+    }
+
+    .toSearch {
+        padding: 14.8px 10px;
+    }
+
+    .movie--box {
+        top: 80px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .movie--cont:hover {
+        transform: scale(1.02);
+    }
+
+    .movie__image {
+        height: 200px;
+    }
+
+    .movieTitle {
+        height: 40px;
+        padding: 8px;
+        margin-top: 10px;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .title {
+        line-height: 17px;
+        width: 100%;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .rating--star {
+        margin-right: 5px;
+        font-size: 14px;
+    }
+
+    .rating--text {
+        font-size: 16px;
+    }
+
+    .overview {
+        width: 100%;
+        background-color: #fff;
+        padding: 7px 10px;
+    }
+    .overview h3 {
+        font-size: 16px;
+    }
+    
+    
+    .overview--text {
+        font-size: 12px;
+    }
+    
+    .overview--others {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
 }
